@@ -1,0 +1,3 @@
+Flask
+boto3
+gunicorn  # If you plan to use this WSGI HTTP Server for production environments
