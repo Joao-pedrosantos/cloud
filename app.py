@@ -1,19 +1,17 @@
 import boto3
 from botocore.exceptions import NoCredentialsError, PartialCredentialsError
-import logging
 from flask import Flask, request, jsonify
+import logging
 
-# Configure logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger()
-
-# Initialize Flask app
 app = Flask(__name__)
 
-# Initialize DynamoDB client
-dynamodb = boto3.resource('dynamodb', region_name='sa-east-1')  # Change region as needed
-table_name = 'MyDynamoDBTable'  # Replace with your DynamoDB table name
-table = dynamodb.Table(table_name)
+# Initialize DynamoDB
+dynamodb = boto3.resource('dynamodb', region_name='sa-east-1')
+table = dynamodb.Table('MyDynamoDBTableName')
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger()
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
@@ -25,8 +23,15 @@ def add_user():
         if not user_data.get('user_id') or not user_data.get('name'):
             return jsonify({'error': 'user_id and name are required fields'}), 400
         
+        # Ensure user_id is included in the item
+        item = {
+            'user_id': user_data['user_id'],
+            'name': user_data['name'],
+            # Include other attributes as necessary
+        }
+        
         # Save data to DynamoDB
-        response = table.put_item(Item=user_data)
+        response = table.put_item(Item=item)
         
         return jsonify({'message': 'User added successfully', 'response': response}), 200
     except NoCredentialsError:
