@@ -27,7 +27,7 @@ def health():
         return jsonify({'message': 'Degraded'}), 200
     except Exception as e:
         logger.error(f"An error occurred: {e}")
-        return jsonify({'message': 'Unhealthy'}), 500
+        return jsonify({f'message': 'Unhealthy - {e}'}), 500
     
     return jsonify({'message': 'Healthy'}), 200
 
