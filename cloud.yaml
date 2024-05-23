@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Infraestrutura da AWS para projeto de Computação em Nuvem
+Description: Infraestrutura da AWS para projeto de Computacao em Nuvem
 
 Resources:
 
