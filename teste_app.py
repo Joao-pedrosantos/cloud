@@ -109,7 +109,7 @@ def main():
                 {'user_id': 'user1', 'name': 'Test User 1'},
                 {'user_id': 'user2', 'name': 'Test User 2'},
                 {'user_id': 'user3', 'name': 'Test User 3'},
-                {'user_id': 'mat', 'name': 'matt'}
+                {'user_id': 'user4', 'name': 'John Cena'}
             ]
 
             for user in users:

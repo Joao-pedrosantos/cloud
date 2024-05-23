@@ -85,13 +85,9 @@ Resources:
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
-      GroupDescription: Enable SSH and HTTP access
+      GroupDescription: Enable HTTP and HTTPS access
       VpcId: !Ref MyVPC
       SecurityGroupIngress:
-        - IpProtocol: "tcp"
-          FromPort: 22
-          ToPort: 22
-          CidrIp: 0.0.0.0/0  # Consider restricting this to your IP for security
         - IpProtocol: "tcp"
           FromPort: 80
           ToPort: 80
@@ -151,15 +147,14 @@ Resources:
   LaunchConfig:
     Type: 'AWS::AutoScaling::LaunchConfiguration'
     Properties:
-      ImageId: 'ami-0cdc2f24b2f67ea17'  # Replace with your AMI ID
+      ImageId: 'ami-0cdc2f24b2f67ea17'  #ID da imagem do Ubuntu 22.04 da AWS
       InstanceType: t2.micro
       SecurityGroups:
         - !Ref InstanceSecurityGroup
-      KeyName: MyKeyPair  # Replace with your key pair name
       IamInstanceProfile: !Ref MyInstanceProfile
 
       UserData:
-        Fn::Base64: |
+        Fn::Base64: | # Script to install Python, pip, git, clone the repository, install requirements and start the application
           #!/bin/bash
           set -e
 
@@ -209,7 +204,7 @@ Resources:
           PropagateAtLaunch: true
 
 
-    # Scaling Policies based on NetworkIn
+  # Scaling Policies based on NetworkIn metric, because it's a good indicator of traffic
   ScaleUpPolicy:
     Type: 'AWS::AutoScaling::ScalingPolicy'
     Properties:
@@ -263,7 +258,7 @@ Resources:
         - !Ref ScaleDownPolicy
 
 
-  # ALB
+  # ALB Configuration
   MyALB:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
     Properties:
@@ -274,7 +269,7 @@ Resources:
       SecurityGroups:
         - !Ref ALBSecurityGroup
 
-  # ALB Listener
+  # ALB Listener 
   MyListener:
     Type: 'AWS::ElasticLoadBalancingV2::Listener'
     Properties:
@@ -285,7 +280,7 @@ Resources:
       Port: 80
       Protocol: HTTP
 
-  # Target Group for ALB
+  # ALB Target Group to route traffic to EC2 instances
   MyTargetGroup:
     Type: 'AWS::ElasticLoadBalancingV2::TargetGroup'
     Properties:
