@@ -149,14 +149,11 @@ Substitua `<ID>`, `<NAME>` e `<ALB-DNS>` pelos valores desejados.
 
 
 ## Escolha da região
-A região escolhida para a execução do projeto foi sa-east-1. A seleção foi baseada na latência e no custo dos serviços. A região sa-east-1 fica localizada em São Paulo, proporcionando menor latência para os usuários brasileiros, além de possuir preços competitivos em relação a outras regiões.
+Inicialmente, a região escolhida foi sa-east-1a, devido à menor latência. No entanto, o preço dos serviços na região sa-east-1a era mais alto do que em outras regiões. Para reduzir os custos, a região foi alterada para us-east-1, que possui preços mais competitivos em relação a outras regiões.
+
 
 ## Projeção de custos do projeto
-Para estimar os custos associados à arquitetura proposta, utilizamos o AWS Cost Calculator. Esta ferramenta permite modelar e comparar os custos de diferentes configurações de serviços AWS, ajudando a tomar decisões informadas sobre escalabilidade e custo-benefício.
-Os principais custos são associados ao DynamoDB e ao Elastic Load Balancer, que são os serviços mais caros da aplicação. Abaixo estão os custos estimados para a aplicação proposta:
-
-1. **DynamoDB**:DynamoDB: $26,39 por/mês (1 table with 1GB of storage)
-2. **Elastic Load Balancer**: Elastic Load Balancer: $16,44 per/month (1 Application Load Balancer)
+Para estimar os custos associados à arquitetura proposta, utilizei o AWS Cost Calculator. Esta ferramenta permite modelar e comparar os custos de diferentes configurações de serviços AWS, ajudando a tomar decisões informadas sobre escalabilidade e custo-benefício.
 
 Para mais informações sobre os custos dos serviços AWS, consulte o arquivo : [Estimativa de Custos AWS](https://github.com/MatheusCastellucci/App-Cloud/blob/main/imgs/My%20Estimate%20-%20Calculadora%20de%20Pre%C3%A7os%20da%20AWS.pdf)
 
