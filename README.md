@@ -124,7 +124,7 @@ Esse comando executa um script que faz os testes de CRUD na aplicação. Para us
 2. **Criar um novo item**:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"user_id": "<ID>", "name": "<NAME>"}' <A0LB-DNS>/add_user
+curl -X POST -H "Content-Type: application/json" -d '{"user_id": "<ID>", "name": "<NAME>"}' <ALB-DNS>/add_user
 ```
 
 3. **Obter um item existente**:
