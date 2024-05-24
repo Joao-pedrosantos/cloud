@@ -166,11 +166,19 @@ Para testar a escalabilidade da aplicação, foi utilizado a ferramenta Locust. 
 
 <p align="center"><b style="font-size: 24px;"><u>Teste de Carga</u></b></p>
 <p align="center">
-  <img src="imgs\locust.png" alt="Topologia"/>
+  <img src="img/locust.png" alt="Topologia"/>
   <p align="center"><style="font-size: 14px;">Foto tirada em  23/05/2024</p>
 </p>
 
 Os resultados do teste de carga mostraram que a aplicação foi capaz de lidar com 1000 usuários simultâneos, cada um realizando 1000 requisições HTTP GET, sem falhas ou erros. A aplicação manteve uma resposta rápida e estável durante todo o teste, demonstrando sua escalabilidade e capacidade de lidar com um grande número de usuários. Assim que o teste foi finalizado, o Auto Scaling Group reduziu o número de instâncias EC2 para o mínimo configurado, economizando recursos e custos.
+
+Para executar o teste novamente, basta executar o comando abaixo:
+
+```bash
+locust -f locustfile.py --host=<ALB-DNS>
+```
+
+Substitua `<ALB-DNS>` pelo DNS do Application Load Balancer.
 
 ## Calculo real dos custos
 Como não temos permissão para acessar a aba de `Tags de Alocação de custos`, podemos utilizar a aba de `Billing & Cost Management` para verificar um sumário dos custos do projeto.
