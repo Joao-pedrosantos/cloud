@@ -124,7 +124,7 @@ Esse comando executa um script que faz os testes de CRUD na aplicação. Para us
 2. **Criar um novo item**:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"id": "<ID>", "name": "<NAME>"}' <ALB-DNS>/add_user
+curl -X POST -H "Content-Type: application/json" -d '{"user_id": "<ID>", "name": "<NAME>"}' <A0LB-DNS>/add_user
 ```
 
 3. **Obter um item existente**:
@@ -136,7 +136,7 @@ curl -X GET "<ALB-DNS>/get_user?user_id=<ID>"
 4. **Atualizar um item existente**:
 
 ```bash
-curl -X PUT <ALB-DNS>/update_user -H "Content-Type: application/json" -d '{"id": "<ID>", "name": "<NAME>"}' 
+curl -X PUT <ALB-DNS>/update_user -H "Content-Type: application/json" -d '{"user_id": "<ID>", "name": "<NAME>"}' 
 ```
 
 5. **Excluir um item existente**:
@@ -166,7 +166,7 @@ Para testar a escalabilidade da aplicação, foi utilizado a ferramenta Locust. 
 
 <p align="center"><b style="font-size: 24px;"><u>Teste de Carga</u></b></p>
 <p align="center">
-  <img src="img/locust.png" alt="Topologia"/>
+  <img src="img/locust.png" alt="Locust"/>
   <p align="center"><style="font-size: 14px;">Foto tirada em  23/05/2024</p>
 </p>
 
@@ -175,11 +175,18 @@ Os resultados do teste de carga mostraram que a aplicação foi capaz de lidar c
 Para executar o teste novamente, basta executar o comando abaixo:
 
 ```bash
-locust -f locustfile.py --host=<ALB-DNS>
+locust -f locustfile.py --host=http://<ALB-DNS>
 ```
 
 Substitua `<ALB-DNS>` pelo DNS do Application Load Balancer.
 
+
+Um exemplo do Auto Scaling Group em ação é mostrado na imagem abaixo:
+<p align="center"><b style="font-size: 24px;"><u>Auto Scaling</u></b></p>
+<p align="center">
+  <img src="img/AS.png" alt="Auto Scaling"/>
+  <p align="center"><style="font-size: 14px;">Foto tirada em  23/05/2024</p>
+</p>
 ## Calculo real dos custos
 Como não temos permissão para acessar a aba de `Tags de Alocação de custos`, podemos utilizar a aba de `Billing & Cost Management` para verificar um sumário dos custos do projeto.
 
