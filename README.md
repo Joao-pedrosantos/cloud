@@ -191,7 +191,7 @@ Como não temos permissão para acessar a aba de `Tags de Alocação de custos`,
 
 <p align="center"><b style="font-size: 24px;"><u>Custos do Projeto</u></b></p>
 <p align="center">
-  <img src="imgs\custos.jpg" alt="Topologia"/>
+  <img src="img/custo_real.png" alt="Custo real"/>
   <p align="center"><style="font-size: 14px;">Foto tirada em  23/05/2024</p>
 </p>  
 
