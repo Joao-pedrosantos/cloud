@@ -149,13 +149,15 @@ Substitua `<ID>`, `<NAME>` e `<ALB-DNS>` pelos valores desejados.
 
 
 ## Escolha da região
-Inicialmente, a região escolhida foi sa-east-1a, devido à menor latência. No entanto, o preço dos serviços na região sa-east-1a era mais alto do que em outras regiões. Para reduzir os custos, a região foi alterada para us-east-1, que possui preços mais competitivos em relação a outras regiões.
+Inicialmente, a região escolhida foi sa-east-1a, devido à menor latência. No entanto, o preço dos serviços na região sa-east-1a era mais alto do que em outras regiões. Dependendo do uso dessa arquitetura, pode ser mais interessanto utilizar a região us-east-1, já que possui menores custos.
 
 
 ## Projeção de custos do projeto
 Para estimar os custos associados à arquitetura proposta, utilizei o AWS Cost Calculator. Esta ferramenta permite modelar e comparar os custos de diferentes configurações de serviços AWS, ajudando a tomar decisões informadas sobre escalabilidade e custo-benefício.
 
-Para mais informações sobre os custos dos serviços AWS, consulte o arquivo : [Estimativa de Custos AWS](https://github.com/MatheusCastellucci/App-Cloud/blob/main/imgs/My%20Estimate%20-%20Calculadora%20de%20Pre%C3%A7os%20da%20AWS.pdf)
+Para mais informações sobre os custos dos serviços AWS, consulte o arquivo : [Estimativa de Custos AWS - SA]()
+
+[Estimativa de Custos AWS - US](https://calculator.aws.amazon.com/pt-calculator/cost-calculator/)
 
 
 ## Teste de carga

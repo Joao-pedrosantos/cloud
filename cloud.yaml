@@ -50,6 +50,7 @@ Resources:
       RouteTableId: !Ref MyRouteTable
   # Attach Internet Gateway to the VPC
 
+  
   AttachGateway:
     Type: 'AWS::EC2::VPCGatewayAttachment'
     Properties:
@@ -62,7 +63,7 @@ Resources:
     Properties:
       VpcId: !Ref MyVPC
       CidrBlock: 10.0.1.0/24
-      AvailabilityZone: us-east-1a
+      AvailabilityZone: sa-east-1a 
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
@@ -74,7 +75,7 @@ Resources:
     Properties:
       VpcId: !Ref MyVPC
       CidrBlock: 10.0.2.0/24
-      AvailabilityZone: us-east-1c
+      AvailabilityZone: sa-east-1c 
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
@@ -146,11 +147,12 @@ Resources:
   LaunchConfig:
     Type: 'AWS::AutoScaling::LaunchConfiguration'
     Properties:
-      ImageId: 'ami-0e001c9271cf7f3b9'  #ID da imagem do Ubuntu 22.04 da AWS
+      ImageId: 'ami-0cdc2f24b2f67ea17'  #ID da imagem do Ubuntu 22.04 da AWS
       InstanceType: t2.micro
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       IamInstanceProfile: !Ref MyInstanceProfile
+
       UserData:
         Fn::Base64: | # Script to install Python, pip, git, clone the repository, install requirements and start the application
           #!/bin/bash
@@ -200,6 +202,7 @@ Resources:
         - Key: Name
           Value: MyAutoScalingGroup
           PropagateAtLaunch: true
+
 
   # Scaling Policies based on NetworkIn metric, because it's a good indicator of traffic
   ScaleUpPolicy:
@@ -253,6 +256,7 @@ Resources:
       ComparisonOperator: LessThanThreshold
       AlarmActions:
         - !Ref ScaleDownPolicy
+
 
   # ALB Configuration
   MyALB:
@@ -339,6 +343,8 @@ Resources:
       Path: '/'
       Roles: 
         - Ref: 'EC2DynamoDBRole'
+
+
 
 Outputs:
   VPCId:
