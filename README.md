@@ -17,15 +17,14 @@ O projeto tem como objetivo a criação de uma infraestrutura utilizando a ideia
 
 <p align="center"><b style="font-size: 24px;"><u>Topologia da solução</u></b></p>
 <p align="center">
-  <img src="imgs\cloud_roteiro.drawio.png" alt="Topologia"/>
-  <p align="center"><style="font-size: 14px;">Algumas imagens foram retiradas do site da AWS (Fonte: https://aws.amazon.com/pt/elasticloadbalancing/ )</p>
+  <img src="img/cloud_projeto.png" alt="Topologia"/>
 </p>
 
 
 <p align="center"><b style="font-size: 24px;"><u>Diagrama da Arquitetura AWS </u></b></p>
 <p align="center">
-  <img src="imgs\application-composer-template.yaml.png" alt="Topologia"/>
-  <p align="center"><style="font-size: 14px;">Diagrama feito com uma das ferramentas disponibilizadas pela AWS(https://sa-east-1.console.aws.amazon.com/composer/canvas?mode=new&region=sa-east-1)</p>
+  <img src="img/cloud_template.png" alt="Topologia"/>
+  <p align="center"><style="font-size: 14px;">Diagrama feito com uma das ferramentas disponibilizadas pela AWS</p>
 </p>
 
 
@@ -118,7 +117,7 @@ Para testar a aplicação, você pode usar o comando curl para enviar requisiç�
 1. **Já existe um script que faz todos os testes de forma automatica**
 
 ```bash
-python3 aplicacao_aplicada.py
+python3 teste_app.py
 ```
 Esse comando executa um script que faz os testes de CRUD na aplicação. Para usar esse comando é necessário que a stack já tenha sido criada.
 
