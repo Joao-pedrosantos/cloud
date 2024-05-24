@@ -155,9 +155,9 @@ Inicialmente, a região escolhida foi sa-east-1a, devido à menor latência. No 
 ## Projeção de custos do projeto
 Para estimar os custos associados à arquitetura proposta, utilizei o AWS Cost Calculator. Esta ferramenta permite modelar e comparar os custos de diferentes configurações de serviços AWS, ajudando a tomar decisões informadas sobre escalabilidade e custo-benefício.
 
-Para mais informações sobre os custos dos serviços AWS, consulte o arquivo : [Estimativa de Custos AWS - SA]()
+Para mais informações sobre os custos dos serviços AWS, consulte o arquivo : [Estimativa de Custos AWS - SA](https://github.com/Joao-pedrosantos/cloud/blob/main/img/My%20Estimate%20-%20Calculadora%20de%20Pre%C3%A7os%20da%20AWS.pdf)
 
-[Estimativa de Custos AWS - US](https://calculator.aws.amazon.com/pt-calculator/cost-calculator/)
+[Estimativa de Custos AWS - US]([https://calculator.aws.amazon.com/pt-calculator/cost-calculator/](https://github.com/Joao-pedrosantos/cloud/blob/main/img/My%20Estimate%20-%20Calculadora%20de%20Pre%C3%A7os%20da%20AWS%20-%20US%20EAST.pdf))
 
 
 ## Teste de carga
